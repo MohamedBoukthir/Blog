@@ -24,6 +24,7 @@ public class JwtService {
     @Value("${JWT_SECRET}")
     private String secret;
 
+
     public String getTokenFromCookie(HttpServletRequest request) {
         String token = null;
         if (request.getCookies() != null) {

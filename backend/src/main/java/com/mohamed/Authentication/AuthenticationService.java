@@ -109,6 +109,7 @@ public class AuthenticationService {
                     .secure(false)
                     .path("/")
                     .maxAge(cookieExpiry)
+                    .sameSite("Lax")
                     .build();
 
             httpServletResponse.addHeader(HttpHeaders.SET_COOKIE, cookie.toString());
@@ -121,7 +122,7 @@ public class AuthenticationService {
                             .build());
         } catch (BadCredentialsException e) {
             return ResponseEntity
-                    .status(HttpStatus.BAD_REQUEST)
+                    .status(HttpStatus.UNAUTHORIZED)
                     .body(LoginResponse.builder()
                             .error("Invalid credentials, Check your username and password")
                             .build()

@@ -1,8 +1,8 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Observable} from "rxjs";
-import {StorageService} from "./storage.service";
-import {User} from "../../../types/global-types";
+import {StorageService} from "../storage/storage.service";
+import {User} from "../../../../types/global-types";
 
 const BASE_URL = 'http://localhost:8080/api/v1/auth/';
 const httpOptions = {

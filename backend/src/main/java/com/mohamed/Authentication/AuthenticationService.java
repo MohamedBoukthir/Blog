@@ -32,7 +32,7 @@ public class AuthenticationService {
     // register
     public ResponseEntity<LoginResponse> register(RegisterRequest registerRequest) {
         // validation
-        if(
+        if (
                 registerRequest.getEmail() == null
                         || registerRequest.getUsername() == null
                         || registerRequest.getFirstName() == null
@@ -47,7 +47,7 @@ public class AuthenticationService {
                     );
         }
         try {
-            if (userRepository.existsByUsername(registerRequest.getUsername())){
+            if (userRepository.existsByUsername(registerRequest.getUsername())) {
                 return ResponseEntity
                         .status(HttpStatus.BAD_REQUEST)
                         .body(LoginResponse.builder()
@@ -63,7 +63,7 @@ public class AuthenticationService {
                     registerRequest.getLastName(),
                     registerRequest.getPhone(),
                     registerRequest.getAge()
-                    );
+            );
             User userResponse = userRepository.save(user);
 
             return ResponseEntity
@@ -82,7 +82,7 @@ public class AuthenticationService {
     }
 
     // login
-    public ResponseEntity<LoginResponse> login (LoginRequest loginRequest, HttpServletResponse httpServletResponse) {
+    public ResponseEntity<LoginResponse> login(LoginRequest loginRequest, HttpServletResponse httpServletResponse) {
         // validation
         if (loginRequest.getUsername() == null || loginRequest.getPassword() == null) {
             return ResponseEntity
@@ -109,7 +109,7 @@ public class AuthenticationService {
                     .secure(false)
                     .path("/")
                     .maxAge(cookieExpiry)
-                    .sameSite("Lax")
+                    .sameSite("Strict") // This attribute can help to prevent cross-site request forgery (CSRF) attacks.
                     .build();
 
             httpServletResponse.addHeader(HttpHeaders.SET_COOKIE, cookie.toString());

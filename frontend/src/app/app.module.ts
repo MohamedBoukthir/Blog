@@ -8,6 +8,7 @@ import { RegisterComponent } from './pages/authentication/register/register.comp
 import {NavbarComponent} from "./components/shared/navbar/navbar.component";
 import {HttpClientModule} from "@angular/common/http";
 import { HomeComponent } from './pages/home/home.component';
+import { HeroComponent } from './components/shared/hero/hero.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { HomeComponent } from './pages/home/home.component';
     NavbarComponent,
     LoginComponent,
     RegisterComponent,
-    HomeComponent
+    HomeComponent,
+    HeroComponent
   ],
   imports: [
     BrowserModule,

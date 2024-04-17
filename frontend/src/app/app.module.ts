@@ -9,6 +9,8 @@ import {NavbarComponent} from "./components/shared/navbar/navbar.component";
 import {HttpClientModule} from "@angular/common/http";
 import { HomeComponent } from './pages/home/home.component';
 import { HeroComponent } from './components/shared/hero/hero.component';
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {ToastrModule} from "ngx-toastr";
 
 @NgModule({
   declarations: [
@@ -22,7 +24,14 @@ import { HeroComponent } from './components/shared/hero/hero.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot({
+      timeOut: 3000,
+      positionClass: 'toast-bottom-right',
+      preventDuplicates: true,
+      progressAnimation: 'decreasing',
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -9,3 +9,8 @@ export interface User {
   age: number;
   role: string;
 }
+
+export interface loginRequest {
+  username: string;
+  password: string;
+}

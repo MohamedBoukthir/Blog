@@ -17,7 +17,7 @@ module.exports = {
     require("daisyui")
   ],
   daisyui: {
-    themes : ["lofi"]
+    themes : ["lofi"] // daisyUi theme
   },
 }
 

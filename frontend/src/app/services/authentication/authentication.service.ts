@@ -22,6 +22,14 @@ export class AuthenticationService {
 
   private user: User | null = this.storageService.getUser();
 
+  getUser(): User | null {
+    return this.user;
+  }
+
+  setUser(user: User): void {
+    this.user = user;
+  }
+
   // register user
   register(registerRequest: any): Observable<any> {
     return this.http.post(BASE_URL + 'register', registerRequest, httpOptions);

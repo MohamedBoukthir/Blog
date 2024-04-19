@@ -13,6 +13,7 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {ToastrModule} from "ngx-toastr";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {RouterModule} from "@angular/router";
+import { NgOptimizedImageDirective } from './directives/ng-optimized-image.directive';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import {RouterModule} from "@angular/router";
     LoginComponent,
     RegisterComponent,
     HomeComponent,
-    HeroComponent
+    HeroComponent,
+    NgOptimizedImageDirective
   ],
   imports: [
     BrowserModule,

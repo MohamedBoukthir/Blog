@@ -42,18 +42,20 @@
 
       <div
         class="mt-8 bg-transparent lg:max-w-sm focus-within:ring focus-within:ring-white dark:focus-within:border-white focus-within:ring-opacity-40">
-          <button type="button"
-                  class="h-10 px-4 py-2 m-1 text-black transition-colors duration-200 transform bg-white rounded-md hover:bg-gray-300 focus:outline-none focus:bg-gray-300"
-                  routerLink="/login">
-            Join Us
-          </button>
+        <button type="button"
+                class="btn transform bg-white hover:bg-gray-300 focus:outline-none focus:bg-gray-200"
+                routerLink="/login">
+          Join Us
+        </button>
       </div>
     </div>
 
     <div class="flex items-center justify-center w-full h-96 lg:w-1/2">
-      <img class="object-cover w-full h-full mx-auto rounded-md lg:max-w-2xl"
-           src="https://images.unsplash.com/photo-1484807352052-23338990c6c6?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-           alt="glasses photo">
+      <img
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        class="object-cover w-full h-full mx-auto lg:max-w-2xl"
+        [appNgOptimizedImage]="'https://images.unsplash.com/photo-1484807352052-23338990c6c6?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'"
+        alt="hero">
     </div>
   </div>
 </section>

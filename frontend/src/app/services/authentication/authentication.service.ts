@@ -6,7 +6,7 @@ import {User} from "../../../../types/global-types";
 
 const BASE_URL = 'http://localhost:8080/api/v1/auth/';
 const httpOptions = {
-  headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+  headers: new HttpHeaders({'Content-Type': 'application/json'}),
 };
 
 @Injectable({
@@ -32,7 +32,7 @@ export class AuthenticationService {
 
   // register user
   register(registerRequest: any): Observable<any> {
-    return this.http.post(BASE_URL + 'register', registerRequest, httpOptions);
+    return this.http.post(BASE_URL + 'register', registerRequest);
   }
 
   // login user

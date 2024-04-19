@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {AuthenticationService} from "../../../services/authentication/authentication.service";
 import {Router} from "@angular/router";
@@ -21,7 +21,8 @@ export class LoginComponent {
     private storageService: StorageService,
     private router: Router,
     private toastr: ToastrService
-  ) {}
+  ) {
+  }
 
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
@@ -30,24 +31,25 @@ export class LoginComponent {
     });
   }
 
-login() {
+  login() {
     console.log(this.loginForm.value);
 
     this.authenticationService.login(this.loginForm.value as loginRequest).subscribe({
       next: (response) => {
         console.log(response);
+        this.toastr.success('Login successful', 'Success');
         this.storageService.saveUser(response.user);
         this.authenticationService.setUser(response.user);
-        if (this.storageService.isAdminLoggedIn()){
-          this.router.navigateByUrl('/admin')
+        if (this.storageService.isAdminLoggedIn()) {
+          this.router.navigateByUrl('/admin/dashboard')
         } else (this.storageService.isUserLoggedIn())
-          this.router.navigateByUrl('/user');
+        this.router.navigateByUrl('/user');
       },
       error: (error) => {
         console.log(error);
         this.toastr.error('Login failed', 'Bad credentials');
       }
     })
-}
+  }
 
 }

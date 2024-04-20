@@ -42,6 +42,7 @@ public class User implements UserDetails {
     @Column(nullable = false)
     private Role role;
 
+
     public User(String username, String email, String password, String firstName, String lastName, String phone, int age) {
         this.username = username;
         this.email = email;

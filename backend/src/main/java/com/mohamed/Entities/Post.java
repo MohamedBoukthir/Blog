@@ -1,5 +1,6 @@
 package com.mohamed.Entities;
 
+import com.mohamed.payload.PostResponse;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -28,15 +29,30 @@ public class Post {
     private LocalDateTime createdAt;
 
     @ManyToOne
-    @JoinColumn(name = "category_id" , nullable = false)
+    @JoinColumn(name = "category_id", nullable = false)
     private Category category;
 
     @ManyToOne
-    @JoinColumn(name = "author_id" , nullable = false)
+    @JoinColumn(name = "author_id", nullable = false)
+
     private User author;
 
-    @OneToMany(mappedBy = "post" , cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "post", cascade = CascadeType.ALL)
     private List<Comment> comments = new ArrayList<>();
+
+
+    public PostResponse getPostResponse() {
+        PostResponse postResponse = new PostResponse();
+        postResponse.setId(this.id);
+        postResponse.setTitle(this.title);
+        postResponse.setContent(this.content);
+        postResponse.setImage(this.image);
+        postResponse.setCategoryId(this.category.getId());
+        postResponse.setCategoryName(this.category.getName());
+        postResponse.setAuthor(this.author.getUsername());
+        postResponse.setCreatedAt(this.createdAt);
+        return postResponse;
+    }
 
 
 }
